@@ -19,11 +19,13 @@ void setup() {
 }
 
 void loop() {
+  int potValue;
+  int pwnValue;
+  
   for(int i = 0; i < sizeof(ledPin); i++) {
-    delay(5);
-    potValue = analogRead(rgbPotPins[i]);
+    potValue = analogRead(potPin[i]);
     pwmValue = map(potValue, 0, 1023, 0, 255);
-    analogWrite(rgbPwmPins[i], pwmValue);
+    analogWrite(ledPin[i], pwmValue);
   }
 }
 
